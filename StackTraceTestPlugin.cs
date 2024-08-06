@@ -30,7 +30,7 @@ namespace PluginStackTraceTest
 
 			var logic = new StackTraceTestLogic();
 
-			localPluginContext.Trace($"Test 3");
+			localPluginContext.Trace($"Test 8");
 
 			try
 			{
@@ -42,7 +42,10 @@ namespace PluginStackTraceTest
 				var linenumber = stackTrace.GetFrame(0).GetFileLineNumber();
 				var file = stackTrace.GetFrame(0).GetFileName();
 				var method = stackTrace.GetFrame(0).GetMethod();
-				localPluginContext.Trace($"{nameof(linenumber)}: {linenumber}, {nameof(file)}: {file}, {nameof(method)}: {method}");
+				localPluginContext.Trace($@"
+					{nameof(linenumber)}: {linenumber}, 
+					{nameof(file)}: {file}, 
+					{nameof(stackTrace)}: {stackTrace}");
 			}
 
 			// TODO: Implement your custom business logic
